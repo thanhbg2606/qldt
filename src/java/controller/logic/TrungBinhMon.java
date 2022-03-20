@@ -20,14 +20,10 @@ public class TrungBinhMon implements ITinhToan{
         float diemTB = 0;
         ArrayList<KetQua> dskq = (ArrayList<KetQua>) dskqcuamotmon;
         
-        float sum = 0;
         for(int i=0; i<dskq.size()-1; i++){
-            sum += dskq.get(i).getDiem() * dskq.get(i).getDiemtp().getTitle();
+            diemTB += dskq.get(i).getDiem() * dskq.get(i).getDiemtp().getTitle();
         }
-        
-        sum = sum / dskq.size()-1;
-        diemTB = sum;
-        return diemTB;
+        return Math.round(diemTB*10)/10;
     }
     
 }
