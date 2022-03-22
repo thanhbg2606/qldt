@@ -80,5 +80,9 @@ public class DangKiHoc implements Serializable{
         this.diemTBchu = diemTBchu;
     }
     
+    public DangKiHoc getData(){
+        return this;
+    }
+    
     
 }

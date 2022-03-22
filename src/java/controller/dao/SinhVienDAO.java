@@ -33,6 +33,7 @@ public class SinhVienDAO extends DAO{
                 user.setTen(rs.getString("ten"));
                 user.setMaSV(rs.getString("maSV"));
                 result = true;
+                System.out.println(user.getMaSV()+" - "+user.getTen());
             }
             
             

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2022 at 04:21 PM
+-- Generation Time: Mar 22, 2022 at 03:44 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -326,39 +326,10 @@ INSERT INTO `tblsinhvien` (`idSinhVien`, `maSV`, `ten`, `username`, `password`, 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `testview`
+-- Stand-in structure for view `viewdangkihoc`
 -- (See below for the actual view)
 --
-CREATE TABLE `testview` (
-`idSinhVien` int(11)
-,`maSV` varchar(15)
-,`fullname` varchar(50)
-,`idDangKiHoc` int(11)
-,`idMonHocKiHoc` int(11)
-,`idMonHoc` int(11)
-,`idKiHoc` int(11)
-,`danghoc` int(11)
-,`idNamHoc` int(11)
-,`idHocKi` int(11)
-,`tenhocky` varchar(10)
-,`namhoc` varchar(25)
-,`monhoc` varchar(255)
-,`soTC` int(10)
-,`idMonHocDauDiem` int(11)
-,`title` float
-,`idDauDiem` int(11)
-,`tendaudiem` varchar(255)
-,`idKetQua` int(11)
-,`diem` float
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `viewall`
--- (See below for the actual view)
---
-CREATE TABLE `viewall` (
+CREATE TABLE `viewdangkihoc` (
 `idSinhVien` int(11)
 ,`maSV` varchar(15)
 ,`fullname` varchar(50)
@@ -374,6 +345,19 @@ CREATE TABLE `viewall` (
 ,`maMH` varchar(255)
 ,`monhoc` varchar(255)
 ,`soTC` int(10)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `viewkq`
+-- (See below for the actual view)
+--
+CREATE TABLE `viewkq` (
+`idDangKiHoc` int(11)
+,`idMonHoc` int(11)
+,`maMH` varchar(255)
+,`monhoc` varchar(255)
 ,`idMonHocDauDiem` int(11)
 ,`title` float
 ,`idDauDiem` int(11)
@@ -385,20 +369,20 @@ CREATE TABLE `viewall` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `testview`
+-- Structure for view `viewdangkihoc`
 --
-DROP TABLE IF EXISTS `testview`;
+DROP TABLE IF EXISTS `viewdangkihoc`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `testview`  AS SELECT `tblsinhvien`.`idSinhVien` AS `idSinhVien`, `tblsinhvien`.`maSV` AS `maSV`, `tblsinhvien`.`ten` AS `fullname`, `tbldangkihoc`.`idDangKiHoc` AS `idDangKiHoc`, `tblmonhockihoc`.`idMonHocKiHoc` AS `idMonHocKiHoc`, `tblmonhoc`.`idMonHoc` AS `idMonHoc`, `tblkihoc`.`idKiHoc` AS `idKiHoc`, `tblkihoc`.`danghoc` AS `danghoc`, `tblnamhoc`.`idNamHoc` AS `idNamHoc`, `tblhocki`.`idHocKi` AS `idHocKi`, `tblhocki`.`ten` AS `tenhocky`, `tblnamhoc`.`ten` AS `namhoc`, `tblmonhoc`.`ten` AS `monhoc`, `tblmonhoc`.`soTC` AS `soTC`, `tblmonhocdaudiem`.`idMonHocDauDiem` AS `idMonHocDauDiem`, `tblmonhocdaudiem`.`title` AS `title`, `tbldaudiem`.`idDauDiem` AS `idDauDiem`, `tbldaudiem`.`ten` AS `tendaudiem`, `tblketqua`.`idKetQua` AS `idKetQua`, `tblketqua`.`diem` AS `diem` FROM (((((((((`tblsinhvien` join `tblnamhoc`) join `tblmonhoc`) join `tbldaudiem`) join `tblhocki`) join `tblkihoc` on(`tblnamhoc`.`idNamHoc` = `tblkihoc`.`idNamHoc` and `tblhocki`.`idHocKi` = `tblkihoc`.`idHocKi`)) join `tblmonhockihoc` on(`tblmonhoc`.`idMonHoc` = `tblmonhockihoc`.`idMonHoc` and `tblkihoc`.`idKiHoc` = `tblmonhockihoc`.`idKiHoc`)) join `tbldangkihoc` on(`tbldangkihoc`.`idSinhVien` = `tblsinhvien`.`idSinhVien` and `tbldangkihoc`.`idMonHocKiHoc` = `tblmonhockihoc`.`idMonHocKiHoc`)) join `tblmonhocdaudiem` on(`tblmonhocdaudiem`.`idMonHoc` = `tblmonhoc`.`idMonHoc` and `tbldaudiem`.`idDauDiem` = `tblmonhocdaudiem`.`idDauDiem`)) join `tblketqua` on(`tbldangkihoc`.`idDangKiHoc` = `tblketqua`.`idDangKiHoc` and `tblmonhocdaudiem`.`idMonHocDauDiem` = `tblketqua`.`idMonHocDauDiem`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewdangkihoc`  AS SELECT `tblsinhvien`.`idSinhVien` AS `idSinhVien`, `tblsinhvien`.`maSV` AS `maSV`, `tblsinhvien`.`ten` AS `fullname`, `tbldangkihoc`.`idDangKiHoc` AS `idDangKiHoc`, `tblmonhockihoc`.`idMonHocKiHoc` AS `idMonHocKiHoc`, `tblmonhoc`.`idMonHoc` AS `idMonHoc`, `tblkihoc`.`idKiHoc` AS `idKiHoc`, `tblkihoc`.`danghoc` AS `danghoc`, `tblnamhoc`.`idNamHoc` AS `idNamHoc`, `tblhocki`.`idHocKi` AS `idHocKi`, `tblhocki`.`ten` AS `tenhocky`, `tblnamhoc`.`ten` AS `namhoc`, `tblmonhoc`.`maMH` AS `maMH`, `tblmonhoc`.`ten` AS `monhoc`, `tblmonhoc`.`soTC` AS `soTC` FROM ((((((`tblsinhvien` join `tblnamhoc`) join `tblmonhoc`) join `tblhocki`) join `tblkihoc` on(`tblnamhoc`.`idNamHoc` = `tblkihoc`.`idNamHoc` and `tblhocki`.`idHocKi` = `tblkihoc`.`idHocKi`)) join `tblmonhockihoc` on(`tblmonhoc`.`idMonHoc` = `tblmonhockihoc`.`idMonHoc` and `tblkihoc`.`idKiHoc` = `tblmonhockihoc`.`idKiHoc`)) join `tbldangkihoc` on(`tbldangkihoc`.`idSinhVien` = `tblsinhvien`.`idSinhVien` and `tbldangkihoc`.`idMonHocKiHoc` = `tblmonhockihoc`.`idMonHocKiHoc`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `viewall`
+-- Structure for view `viewkq`
 --
-DROP TABLE IF EXISTS `viewall`;
+DROP TABLE IF EXISTS `viewkq`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewall`  AS SELECT `tblsinhvien`.`idSinhVien` AS `idSinhVien`, `tblsinhvien`.`maSV` AS `maSV`, `tblsinhvien`.`ten` AS `fullname`, `tbldangkihoc`.`idDangKiHoc` AS `idDangKiHoc`, `tblmonhockihoc`.`idMonHocKiHoc` AS `idMonHocKiHoc`, `tblmonhoc`.`idMonHoc` AS `idMonHoc`, `tblkihoc`.`idKiHoc` AS `idKiHoc`, `tblkihoc`.`danghoc` AS `danghoc`, `tblnamhoc`.`idNamHoc` AS `idNamHoc`, `tblhocki`.`idHocKi` AS `idHocKi`, `tblhocki`.`ten` AS `tenhocky`, `tblnamhoc`.`ten` AS `namhoc`, `tblmonhoc`.`maMH` AS `maMH`, `tblmonhoc`.`ten` AS `monhoc`, `tblmonhoc`.`soTC` AS `soTC`, `tblmonhocdaudiem`.`idMonHocDauDiem` AS `idMonHocDauDiem`, `tblmonhocdaudiem`.`title` AS `title`, `tbldaudiem`.`idDauDiem` AS `idDauDiem`, `tbldaudiem`.`ten` AS `tendaudiem`, `tblketqua`.`idKetQua` AS `idKetQua`, `tblketqua`.`diem` AS `diem` FROM (((((((((`tblsinhvien` join `tblnamhoc`) join `tblmonhoc`) join `tbldaudiem`) join `tblhocki`) join `tblkihoc` on(`tblnamhoc`.`idNamHoc` = `tblkihoc`.`idNamHoc` and `tblhocki`.`idHocKi` = `tblkihoc`.`idHocKi`)) join `tblmonhockihoc` on(`tblmonhoc`.`idMonHoc` = `tblmonhockihoc`.`idMonHoc` and `tblkihoc`.`idKiHoc` = `tblmonhockihoc`.`idKiHoc`)) join `tbldangkihoc` on(`tbldangkihoc`.`idSinhVien` = `tblsinhvien`.`idSinhVien` and `tbldangkihoc`.`idMonHocKiHoc` = `tblmonhockihoc`.`idMonHocKiHoc`)) join `tblmonhocdaudiem` on(`tblmonhocdaudiem`.`idMonHoc` = `tblmonhoc`.`idMonHoc` and `tbldaudiem`.`idDauDiem` = `tblmonhocdaudiem`.`idDauDiem`)) join `tblketqua` on(`tbldangkihoc`.`idDangKiHoc` = `tblketqua`.`idDangKiHoc` and `tblmonhocdaudiem`.`idMonHocDauDiem` = `tblketqua`.`idMonHocDauDiem`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewkq`  AS SELECT `tbldangkihoc`.`idDangKiHoc` AS `idDangKiHoc`, `tblmonhoc`.`idMonHoc` AS `idMonHoc`, `tblmonhoc`.`maMH` AS `maMH`, `tblmonhoc`.`ten` AS `monhoc`, `tblmonhocdaudiem`.`idMonHocDauDiem` AS `idMonHocDauDiem`, `tblmonhocdaudiem`.`title` AS `title`, `tbldaudiem`.`idDauDiem` AS `idDauDiem`, `tbldaudiem`.`ten` AS `tendaudiem`, `tblketqua`.`idKetQua` AS `idKetQua`, `tblketqua`.`diem` AS `diem` FROM ((((`tbldaudiem` join `tbldangkihoc`) join `tblmonhoc`) join `tblmonhocdaudiem` on(`tblmonhocdaudiem`.`idMonHoc` = `tblmonhoc`.`idMonHoc` and `tbldaudiem`.`idDauDiem` = `tblmonhocdaudiem`.`idDauDiem`)) join `tblketqua` on(`tbldangkihoc`.`idDangKiHoc` = `tblketqua`.`idDangKiHoc` and `tblmonhocdaudiem`.`idMonHocDauDiem` = `tblketqua`.`idMonHocDauDiem`)) ;
 
 --
 -- Indexes for dumped tables

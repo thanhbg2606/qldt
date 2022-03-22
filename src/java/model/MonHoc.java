@@ -22,6 +22,7 @@ public class MonHoc implements Serializable{
     public MonHoc() {
     }
 
+    //maTC === maMH; dat ten sai
     public MonHoc(String maTC, String ten, int soTC, ArrayList<MonHocDauDiem> dsdaudiem) {
         this.maTC = maTC;
         this.ten = ten;
