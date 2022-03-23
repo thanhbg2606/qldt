@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.dao;
+package dao;
 
-import controller.dao.DAO;
+import dao.DAO;
 import model.SinhVien;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,4 +42,6 @@ public class SinhVienDAO extends DAO{
         }
         return result;
     }
+    
+    
 }

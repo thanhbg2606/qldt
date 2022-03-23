@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 22, 2022 at 03:44 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 23, 2022 lúc 04:31 PM
+-- Phiên bản máy phục vụ: 10.4.19-MariaDB
+-- Phiên bản PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ql_diem_ptit`
+-- Cơ sở dữ liệu: `ql_diem_ptit`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbldangkihoc`
+-- Cấu trúc bảng cho bảng `tbldangkihoc`
 --
 
 CREATE TABLE `tbldangkihoc` (
@@ -35,7 +35,7 @@ CREATE TABLE `tbldangkihoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbldangkihoc`
+-- Đang đổ dữ liệu cho bảng `tbldangkihoc`
 --
 
 INSERT INTO `tbldangkihoc` (`idDangKiHoc`, `ghichu`, `idSinhVien`, `idMonHocKiHoc`) VALUES
@@ -45,12 +45,13 @@ INSERT INTO `tbldangkihoc` (`idDangKiHoc`, `ghichu`, `idSinhVien`, `idMonHocKiHo
 (8, '', 1, 11),
 (9, '', 1, 12),
 (10, '', 1, 13),
-(11, '', 1, 14);
+(11, '', 1, 14),
+(12, '', 1, 15);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbldaudiem`
+-- Cấu trúc bảng cho bảng `tbldaudiem`
 --
 
 CREATE TABLE `tbldaudiem` (
@@ -60,20 +61,20 @@ CREATE TABLE `tbldaudiem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbldaudiem`
+-- Đang đổ dữ liệu cho bảng `tbldaudiem`
 --
 
 INSERT INTO `tbldaudiem` (`idDauDiem`, `ten`, `mota`) VALUES
 (1, 'Chuyên cần', ''),
 (2, 'Kiểm tra', ''),
-(3, 'Thực Hành', ''),
-(4, 'Bài Tập', ''),
+(3, 'Thực hành', ''),
+(4, 'Bài tập', ''),
 (5, 'Thi', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblhocki`
+-- Cấu trúc bảng cho bảng `tblhocki`
 --
 
 CREATE TABLE `tblhocki` (
@@ -83,7 +84,7 @@ CREATE TABLE `tblhocki` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblhocki`
+-- Đang đổ dữ liệu cho bảng `tblhocki`
 --
 
 INSERT INTO `tblhocki` (`idHocKi`, `ten`, `mota`) VALUES
@@ -94,7 +95,7 @@ INSERT INTO `tblhocki` (`idHocKi`, `ten`, `mota`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblketqua`
+-- Cấu trúc bảng cho bảng `tblketqua`
 --
 
 CREATE TABLE `tblketqua` (
@@ -106,7 +107,7 @@ CREATE TABLE `tblketqua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblketqua`
+-- Đang đổ dữ liệu cho bảng `tblketqua`
 --
 
 INSERT INTO `tblketqua` (`idKetQua`, `diem`, `ghichu`, `idDangKiHoc`, `idMonHocDauDiem`) VALUES
@@ -135,12 +136,15 @@ INSERT INTO `tblketqua` (`idKetQua`, `diem`, `ghichu`, `idDangKiHoc`, `idMonHocD
 (41, 10, '', 11, 41),
 (42, 3.5, '', 11, 42),
 (43, 10, '', 11, 43),
-(44, 3, '', 11, 44);
+(44, 3, '', 11, 44),
+(45, 10, '', 12, 41),
+(46, 8, '', 12, 42),
+(47, 4, '', 12, 43);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblkihoc`
+-- Cấu trúc bảng cho bảng `tblkihoc`
 --
 
 CREATE TABLE `tblkihoc` (
@@ -152,7 +156,7 @@ CREATE TABLE `tblkihoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblkihoc`
+-- Đang đổ dữ liệu cho bảng `tblkihoc`
 --
 
 INSERT INTO `tblkihoc` (`idKiHoc`, `danghoc`, `dangdk`, `idNamHoc`, `idHocKi`) VALUES
@@ -160,12 +164,13 @@ INSERT INTO `tblkihoc` (`idKiHoc`, `danghoc`, `dangdk`, `idNamHoc`, `idHocKi`) V
 (12, 1, 1, 1, 2),
 (13, 1, 1, 1, 3),
 (14, 1, 1, 2, 1),
-(15, 1, 1, 2, 2);
+(15, 1, 1, 2, 2),
+(16, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblmonhoc`
+-- Cấu trúc bảng cho bảng `tblmonhoc`
 --
 
 CREATE TABLE `tblmonhoc` (
@@ -177,7 +182,7 @@ CREATE TABLE `tblmonhoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblmonhoc`
+-- Đang đổ dữ liệu cho bảng `tblmonhoc`
 --
 
 INSERT INTO `tblmonhoc` (`idMonHoc`, `ten`, `maMH`, `soTC`, `mota`) VALUES
@@ -191,12 +196,13 @@ INSERT INTO `tblmonhoc` (`idMonHoc`, `ten`, `maMH`, `soTC`, `mota`) VALUES
 (8, 'Xác suất thống kê', 'BAS1226', 2, ''),
 (9, 'Vật lý 1 và thí nghiệm', 'BAS1224', 4, ''),
 (10, 'Kỹ thuật số', 'ELE1433', 2, ''),
-(11, 'Ngôn ngữ lập trình C++', 'INT1339', 3, '');
+(11, 'Ngôn ngữ lập trình C++', 'INT1339', 3, ''),
+(12, 'Giáo Dục Thể Chất 1', 'BAS1106', 2, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblmonhocdaudiem`
+-- Cấu trúc bảng cho bảng `tblmonhocdaudiem`
 --
 
 CREATE TABLE `tblmonhocdaudiem` (
@@ -207,7 +213,7 @@ CREATE TABLE `tblmonhocdaudiem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblmonhocdaudiem`
+-- Đang đổ dữ liệu cho bảng `tblmonhocdaudiem`
 --
 
 INSERT INTO `tblmonhocdaudiem` (`idMonHocDauDiem`, `title`, `idMonHoc`, `idDauDiem`) VALUES
@@ -233,9 +239,9 @@ INSERT INTO `tblmonhocdaudiem` (`idMonHocDauDiem`, `title`, `idMonHoc`, `idDauDi
 (38, 0.1, 6, 1),
 (39, 0.2, 6, 2),
 (40, 0.7, 6, 5),
-(41, 0.1, 7, 1),
-(42, 0.1, 7, 2),
-(43, 0.1, 7, 3),
+(41, 0.2, 12, 1),
+(42, 0.3, 12, 2),
+(43, 0.5, 12, 5),
 (44, 0.7, 7, 5),
 (45, 0.1, 8, 1),
 (46, 0.1, 8, 2),
@@ -244,12 +250,15 @@ INSERT INTO `tblmonhocdaudiem` (`idMonHocDauDiem`, `title`, `idMonHoc`, `idDauDi
 (49, 0.1, 9, 1),
 (50, 0.1, 9, 2),
 (51, 0.2, 9, 3),
-(52, 0.6, 9, 5);
+(52, 0.6, 9, 5),
+(54, 0.2, 12, 1),
+(55, 0.3, 12, 2),
+(56, 0.5, 12, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblmonhockihoc`
+-- Cấu trúc bảng cho bảng `tblmonhockihoc`
 --
 
 CREATE TABLE `tblmonhockihoc` (
@@ -259,7 +268,7 @@ CREATE TABLE `tblmonhockihoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblmonhockihoc`
+-- Đang đổ dữ liệu cho bảng `tblmonhockihoc`
 --
 
 INSERT INTO `tblmonhockihoc` (`idMonHocKiHoc`, `idMonHoc`, `idKiHoc`) VALUES
@@ -269,12 +278,13 @@ INSERT INTO `tblmonhockihoc` (`idMonHocKiHoc`, `idMonHoc`, `idKiHoc`) VALUES
 (11, 4, 11),
 (12, 5, 12),
 (13, 6, 12),
-(14, 7, 12);
+(14, 7, 12),
+(15, 12, 11);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblnamhoc`
+-- Cấu trúc bảng cho bảng `tblnamhoc`
 --
 
 CREATE TABLE `tblnamhoc` (
@@ -284,7 +294,7 @@ CREATE TABLE `tblnamhoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblnamhoc`
+-- Đang đổ dữ liệu cho bảng `tblnamhoc`
 --
 
 INSERT INTO `tblnamhoc` (`idNamHoc`, `ten`, `mota`) VALUES
@@ -298,7 +308,7 @@ INSERT INTO `tblnamhoc` (`idNamHoc`, `ten`, `mota`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblsinhvien`
+-- Cấu trúc bảng cho bảng `tblsinhvien`
 --
 
 CREATE TABLE `tblsinhvien` (
@@ -313,7 +323,7 @@ CREATE TABLE `tblsinhvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tblsinhvien`
+-- Đang đổ dữ liệu cho bảng `tblsinhvien`
 --
 
 INSERT INTO `tblsinhvien` (`idSinhVien`, `maSV`, `ten`, `username`, `password`, `email`, `phone`, `address`) VALUES
@@ -326,7 +336,7 @@ INSERT INTO `tblsinhvien` (`idSinhVien`, `maSV`, `ten`, `username`, `password`, 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `viewdangkihoc`
+-- Cấu trúc đóng vai cho view `viewdangkihoc`
 -- (See below for the actual view)
 --
 CREATE TABLE `viewdangkihoc` (
@@ -350,7 +360,7 @@ CREATE TABLE `viewdangkihoc` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `viewkq`
+-- Cấu trúc đóng vai cho view `viewkq`
 -- (See below for the actual view)
 --
 CREATE TABLE `viewkq` (
@@ -369,7 +379,7 @@ CREATE TABLE `viewkq` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `viewdangkihoc`
+-- Cấu trúc cho view `viewdangkihoc`
 --
 DROP TABLE IF EXISTS `viewdangkihoc`;
 
@@ -378,18 +388,18 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `viewkq`
+-- Cấu trúc cho view `viewkq`
 --
 DROP TABLE IF EXISTS `viewkq`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewkq`  AS SELECT `tbldangkihoc`.`idDangKiHoc` AS `idDangKiHoc`, `tblmonhoc`.`idMonHoc` AS `idMonHoc`, `tblmonhoc`.`maMH` AS `maMH`, `tblmonhoc`.`ten` AS `monhoc`, `tblmonhocdaudiem`.`idMonHocDauDiem` AS `idMonHocDauDiem`, `tblmonhocdaudiem`.`title` AS `title`, `tbldaudiem`.`idDauDiem` AS `idDauDiem`, `tbldaudiem`.`ten` AS `tendaudiem`, `tblketqua`.`idKetQua` AS `idKetQua`, `tblketqua`.`diem` AS `diem` FROM ((((`tbldaudiem` join `tbldangkihoc`) join `tblmonhoc`) join `tblmonhocdaudiem` on(`tblmonhocdaudiem`.`idMonHoc` = `tblmonhoc`.`idMonHoc` and `tbldaudiem`.`idDauDiem` = `tblmonhocdaudiem`.`idDauDiem`)) join `tblketqua` on(`tbldangkihoc`.`idDangKiHoc` = `tblketqua`.`idDangKiHoc` and `tblmonhocdaudiem`.`idMonHocDauDiem` = `tblketqua`.`idMonHocDauDiem`)) ;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tbldangkihoc`
+-- Chỉ mục cho bảng `tbldangkihoc`
 --
 ALTER TABLE `tbldangkihoc`
   ADD PRIMARY KEY (`idDangKiHoc`),
@@ -397,19 +407,19 @@ ALTER TABLE `tbldangkihoc`
   ADD KEY `idMonHocKiHoc` (`idMonHocKiHoc`);
 
 --
--- Indexes for table `tbldaudiem`
+-- Chỉ mục cho bảng `tbldaudiem`
 --
 ALTER TABLE `tbldaudiem`
   ADD PRIMARY KEY (`idDauDiem`);
 
 --
--- Indexes for table `tblhocki`
+-- Chỉ mục cho bảng `tblhocki`
 --
 ALTER TABLE `tblhocki`
   ADD PRIMARY KEY (`idHocKi`);
 
 --
--- Indexes for table `tblketqua`
+-- Chỉ mục cho bảng `tblketqua`
 --
 ALTER TABLE `tblketqua`
   ADD PRIMARY KEY (`idKetQua`),
@@ -417,7 +427,7 @@ ALTER TABLE `tblketqua`
   ADD KEY `idMonHocDauDiem` (`idMonHocDauDiem`);
 
 --
--- Indexes for table `tblkihoc`
+-- Chỉ mục cho bảng `tblkihoc`
 --
 ALTER TABLE `tblkihoc`
   ADD PRIMARY KEY (`idKiHoc`),
@@ -425,13 +435,13 @@ ALTER TABLE `tblkihoc`
   ADD KEY `idNamHoc` (`idNamHoc`);
 
 --
--- Indexes for table `tblmonhoc`
+-- Chỉ mục cho bảng `tblmonhoc`
 --
 ALTER TABLE `tblmonhoc`
   ADD PRIMARY KEY (`idMonHoc`);
 
 --
--- Indexes for table `tblmonhocdaudiem`
+-- Chỉ mục cho bảng `tblmonhocdaudiem`
 --
 ALTER TABLE `tblmonhocdaudiem`
   ADD PRIMARY KEY (`idMonHocDauDiem`),
@@ -439,7 +449,7 @@ ALTER TABLE `tblmonhocdaudiem`
   ADD KEY `idDauDiem` (`idDauDiem`);
 
 --
--- Indexes for table `tblmonhockihoc`
+-- Chỉ mục cho bảng `tblmonhockihoc`
 --
 ALTER TABLE `tblmonhockihoc`
   ADD PRIMARY KEY (`idMonHocKiHoc`),
@@ -447,115 +457,115 @@ ALTER TABLE `tblmonhockihoc`
   ADD KEY `idMonHoc` (`idMonHoc`);
 
 --
--- Indexes for table `tblnamhoc`
+-- Chỉ mục cho bảng `tblnamhoc`
 --
 ALTER TABLE `tblnamhoc`
   ADD PRIMARY KEY (`idNamHoc`);
 
 --
--- Indexes for table `tblsinhvien`
+-- Chỉ mục cho bảng `tblsinhvien`
 --
 ALTER TABLE `tblsinhvien`
   ADD PRIMARY KEY (`idSinhVien`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tbldangkihoc`
+-- AUTO_INCREMENT cho bảng `tbldangkihoc`
 --
 ALTER TABLE `tbldangkihoc`
-  MODIFY `idDangKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idDangKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tbldaudiem`
+-- AUTO_INCREMENT cho bảng `tbldaudiem`
 --
 ALTER TABLE `tbldaudiem`
   MODIFY `idDauDiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tblhocki`
+-- AUTO_INCREMENT cho bảng `tblhocki`
 --
 ALTER TABLE `tblhocki`
   MODIFY `idHocKi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tblketqua`
+-- AUTO_INCREMENT cho bảng `tblketqua`
 --
 ALTER TABLE `tblketqua`
-  MODIFY `idKetQua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `idKetQua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `tblkihoc`
+-- AUTO_INCREMENT cho bảng `tblkihoc`
 --
 ALTER TABLE `tblkihoc`
-  MODIFY `idKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tblmonhoc`
+-- AUTO_INCREMENT cho bảng `tblmonhoc`
 --
 ALTER TABLE `tblmonhoc`
-  MODIFY `idMonHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idMonHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tblmonhocdaudiem`
+-- AUTO_INCREMENT cho bảng `tblmonhocdaudiem`
 --
 ALTER TABLE `tblmonhocdaudiem`
-  MODIFY `idMonHocDauDiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `idMonHocDauDiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT for table `tblmonhockihoc`
+-- AUTO_INCREMENT cho bảng `tblmonhockihoc`
 --
 ALTER TABLE `tblmonhockihoc`
-  MODIFY `idMonHocKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idMonHocKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tblnamhoc`
+-- AUTO_INCREMENT cho bảng `tblnamhoc`
 --
 ALTER TABLE `tblnamhoc`
   MODIFY `idNamHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tblsinhvien`
+-- AUTO_INCREMENT cho bảng `tblsinhvien`
 --
 ALTER TABLE `tblsinhvien`
   MODIFY `idSinhVien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `tbldangkihoc`
+-- Các ràng buộc cho bảng `tbldangkihoc`
 --
 ALTER TABLE `tbldangkihoc`
   ADD CONSTRAINT `tbldangkihoc_ibfk_1` FOREIGN KEY (`idSinhVien`) REFERENCES `tblsinhvien` (`idSinhVien`),
   ADD CONSTRAINT `tbldangkihoc_ibfk_2` FOREIGN KEY (`idMonHocKiHoc`) REFERENCES `tblmonhockihoc` (`idMonHocKiHoc`);
 
 --
--- Constraints for table `tblketqua`
+-- Các ràng buộc cho bảng `tblketqua`
 --
 ALTER TABLE `tblketqua`
   ADD CONSTRAINT `tblketqua_ibfk_1` FOREIGN KEY (`idDangKiHoc`) REFERENCES `tbldangkihoc` (`idDangKiHoc`),
   ADD CONSTRAINT `tblketqua_ibfk_2` FOREIGN KEY (`idMonHocDauDiem`) REFERENCES `tblmonhocdaudiem` (`idMonHocDauDiem`);
 
 --
--- Constraints for table `tblkihoc`
+-- Các ràng buộc cho bảng `tblkihoc`
 --
 ALTER TABLE `tblkihoc`
   ADD CONSTRAINT `tblkihoc_ibfk_1` FOREIGN KEY (`idHocKi`) REFERENCES `tblhocki` (`idHocKi`),
   ADD CONSTRAINT `tblkihoc_ibfk_2` FOREIGN KEY (`idNamHoc`) REFERENCES `tblnamhoc` (`idNamHoc`);
 
 --
--- Constraints for table `tblmonhocdaudiem`
+-- Các ràng buộc cho bảng `tblmonhocdaudiem`
 --
 ALTER TABLE `tblmonhocdaudiem`
   ADD CONSTRAINT `tblmonhocdaudiem_ibfk_1` FOREIGN KEY (`idMonHoc`) REFERENCES `tblmonhoc` (`idMonHoc`),
   ADD CONSTRAINT `tblmonhocdaudiem_ibfk_2` FOREIGN KEY (`idDauDiem`) REFERENCES `tbldaudiem` (`idDauDiem`);
 
 --
--- Constraints for table `tblmonhockihoc`
+-- Các ràng buộc cho bảng `tblmonhockihoc`
 --
 ALTER TABLE `tblmonhockihoc`
   ADD CONSTRAINT `tblmonhockihoc_ibfk_1` FOREIGN KEY (`idKiHoc`) REFERENCES `tblkihoc` (`idKiHoc`),

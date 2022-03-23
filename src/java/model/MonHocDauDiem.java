@@ -18,6 +18,8 @@ public class MonHocDauDiem implements Serializable{
 
     public MonHocDauDiem() {
     }
+    
+    
 
     public MonHocDauDiem(DauDiem dauDiem, float title) {
         this.dauDiem = dauDiem;
