@@ -115,6 +115,7 @@ public class TTSV extends DAO{
                 mh.setMaTC(rs.getString("maMH"));
                 mh.setSoTC(rs.getInt("soTC"));
                 mh.setTen(rs.getString("monhoc"));
+                mh.setIsTinhDiem(rs.getInt("isTinhDiem"));
             
                 MonHocKiHoc mhkh = new MonHocKiHoc();
                 mhkh.setId(rs.getInt("idMonHocKiHoc"));
@@ -173,6 +174,7 @@ public class TTSV extends DAO{
                 mh.setMaTC(rs.getString("maMH"));
                 mh.setSoTC(rs.getInt("soTC"));
                 mh.setTen(rs.getString("monhoc"));
+                mh.setIsTinhDiem(rs.getInt("isTinhDiem"));
             
                 MonHocKiHoc mhkh = new MonHocKiHoc();
                 mhkh.setId(rs.getInt("idMonHocKiHoc"));

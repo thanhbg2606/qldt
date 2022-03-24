@@ -17,6 +17,7 @@ public class MonHoc implements Serializable{
     private String maTC;
     private String ten;
     private int soTC;
+    private int isTinhDiem; //vs 0 là tính TB, 1 là không tính
     private ArrayList<MonHocDauDiem> dsdaudiem;
 
     public MonHoc() {
@@ -28,6 +29,22 @@ public class MonHoc implements Serializable{
         this.ten = ten;
         this.soTC = soTC;
         this.dsdaudiem= dsdaudiem;
+    }
+
+    public int getIsTinhDiem() {
+        return isTinhDiem;
+    }
+
+    public void setIsTinhDiem(int isTinhDiem) {
+        this.isTinhDiem = isTinhDiem;
+    }
+
+    public ArrayList<MonHocDauDiem> getDsdaudiem() {
+        return dsdaudiem;
+    }
+
+    public void setDsdaudiem(ArrayList<MonHocDauDiem> dsdaudiem) {
+        this.dsdaudiem = dsdaudiem;
     }
 
     public int getId() {

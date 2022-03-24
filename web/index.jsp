@@ -41,7 +41,7 @@
                 <div class="login">
                     <div class="infor">
                         <p>Chào bạn ${sessionScope.sinhvien.ten} (${sessionScope.sinhvien.maSV})
-                            <a href="#">Xem thông báo</a> | <a href="#">Thay đổi mật khẩu</a> | <a href="#">Thoát</a>
+                            <a href="#">Xem thông báo</a> | <a href="#">Thay đổi mật khẩu</a> | <a href="LogoutController">Thoát</a>
                             <select id="font">
                                 <option value="tahoma">Tahoma</option>
                                 <option value="time news roman">Time News Roman</option>
@@ -207,9 +207,11 @@
                                     </td>
                                 </tr>
                                 <!--Start Hoc Ky 1 2018-2019 -->
-                                <%ArrayList<DangKiHoc> curr = new ArrayList<DangKiHoc>();%>
+                                <%//var accumulation lưu trữ danh sách của các kỳ như count
+                                    ArrayList<DangKiHoc> accumulation = new ArrayList<DangKiHoc>();%>
                                 <%for (ArrayList<DangKiHoc> listdkhtheoky : listdkh) {
-
+                                        //var curr lưu trữ danh sách môn học của 1 kỳ
+                                        ArrayList<DangKiHoc> curr = new ArrayList<DangKiHoc>();
                                 %>
                                 <tr class="title-hk-diem">
                                     <td colspan="18">
@@ -219,7 +221,9 @@
                                     </td>
                                 </tr>
                                 <%for (DangKiHoc dkh : listdkhtheoky) {%>
-                                <%curr.add(dkh);%>
+                                <%accumulation.add(dkh);
+                                    curr.add(dkh);
+                                %>
                                 <div class="row-diem-gr">
                                     <tr class="row-diem">
                                         <td><span class="font">2</span></td>
@@ -265,26 +269,28 @@
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Điểm trung bình học kỳ hệ 4:</span>
-                                            <%float k = Pretreatment.DiemTBKyHoc(curr);%>
-                                            <span class="font"><%=k%></span>
+                                            <%float cur = Pretreatment.DiemTBKyHoc(curr);%>
+                                            <span class="font"><%=cur%></span>
                                         </td>
                                     </tr>
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Điểm trung bình tích lũy(hệ 4):</span>
-                                            <span class="font">2.60</span>
+                                            <%float acc = Pretreatment.DiemTBKyHoc(accumulation);%>
+                                            <span class="font"><%=acc%></span>
+
                                         </td>
                                     </tr>
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Số tín chỉ đạt:</span>
-                                            <span class="font">10</span>
+                                            <span class="font"><%=Pretreatment.TinhToanTinChi(curr)%></span>
                                         </td>
                                     </tr>
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Số tín chỉ tích lũy:</span>
-                                            <span class="font">10</span>
+                                            <span class="font"><%=Pretreatment.TinhToanTinChi(accumulation)%></span>
                                         </td>
                                     </tr>
                                 </div>

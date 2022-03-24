@@ -64,7 +64,9 @@ public class Pretreatment {
 
     }
 
-    public static float DiemTBKyHoc(ArrayList<DangKiHoc> ds) {
+    public static float DiemTBKyHoc(ArrayList<DangKiHoc> dsmh) {
+        
+        ArrayList<DangKiHoc> ds = Pretreatment.XuLyMonHocLai(Pretreatment.XuLyMonKhongTinhDiem(dsmh));
         float res = 0.0f;
         for (DangKiHoc d : ds) {
             TinhToan tt = new TinhToan();
@@ -165,6 +167,60 @@ public class Pretreatment {
 
         }
 
+        return result;
+    }
+    
+    public static int TinhToanTinChi(ArrayList<DangKiHoc> dsmh){
+        System.out.println("So mon dau vao:" + dsmh.size());
+        ArrayList<DangKiHoc> ds = Pretreatment.XuLyMonHocLai(Pretreatment.XuLyMonKhongTinhDiem(dsmh));
+        System.out.println("so mon dau ra:" +ds.size());
+        int res = 0;
+        for (DangKiHoc d : ds) {
+            if (d.getDiemTBM() >= 4.0) {
+                res+=d.getMonHocKiHoc().getMh().getSoTC();
+            }
+        }
+        return res;
+    }
+    
+    public static ArrayList<DangKiHoc> XuLyMonHocLai(ArrayList<DangKiHoc> ds){
+        ArrayList<DangKiHoc> result = new ArrayList<>();
+        
+        //Tính toán điểm TB cho từng môn để so sánh
+        for (DangKiHoc d : ds) {
+            TinhToan tt = new TinhToan();
+            tt.setObj(d.getDsketqua());
+            tt.setTinhtoan(new TrungBinhMon());
+            d.setDiemTBM(tt.getKQ());
+            result.add(d);
+        }
+        int size = ds.size();
+        
+        //2 môn học trùng ID, sẽ xóa môn học có điểm TB thấp hơn
+        for (int i = 0; i < size-1; i++) {
+            for (int j = i+1; j < size; j++) {
+               if(ds.get(i).getMonHocKiHoc().getMh().getId() == ds.get(j).getMonHocKiHoc().getMh().getId()){
+                   if(ds.get(i).getDiemTBM() >= ds.get(j).getDiemTBM()){
+                       result.remove(j);
+                   }
+                   else
+                       result.remove(i);
+               } 
+            }
+        }
+        
+        return result;
+    }
+    
+    public static ArrayList<DangKiHoc> XuLyMonKhongTinhDiem(ArrayList<DangKiHoc> ds){
+        ArrayList<DangKiHoc> result = new ArrayList<>();
+        
+        for (DangKiHoc d : ds) {
+            if(d.getMonHocKiHoc().getMh().getIsTinhDiem()==0){
+                result.add(d);
+            }
+                
+        }
         return result;
     }
 
