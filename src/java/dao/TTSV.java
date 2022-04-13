@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 import model.DauDiem;
 import model.HocKi;
 import model.KetQua;
@@ -64,10 +65,10 @@ public class TTSV extends DAO{
     
     public ArrayList<Integer> getKiHoc(SinhVien sv){
         ArrayList<Integer> listKH = new ArrayList<>();
-        Set<Integer> setA = new HashSet<Integer>();
+        Set<Integer> setA = new TreeSet<Integer>();
          String sql = "SELECT idKiHoc FROM viewDangKiHoc WHERE idSinhVien = ? ";
          try {
-             PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, sv.getId());
             ResultSet rs = ps.executeQuery();
             while(rs.next()){

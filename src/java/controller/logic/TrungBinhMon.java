@@ -23,7 +23,6 @@ public class TrungBinhMon implements ITinhToan{
         for(int i=0; i<dskq.size(); i++){
             diemTB += dskq.get(i).getDiem() * dskq.get(i).getDiemtp().getTitle();
         }
-        System.out.println(diemTB);
         return (float)Math.round(diemTB*10)/10;
     }
     

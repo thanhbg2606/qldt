@@ -139,6 +139,7 @@
                     <div class="table">
                         <% ArrayList<Integer> kh = new ArrayList<Integer>();
                             kh = t.getKiHoc(sv);
+                            int index = 0;
                             ArrayList< ArrayList<DangKiHoc>> listdkh = new ArrayList< ArrayList<DangKiHoc>>();
                             for (int i = 0; i < kh.size(); i++) {
                                 listdkh.add(t.getListDangKiHocTheoKy(sv, kh.get(i)));
@@ -223,10 +224,11 @@
                                 <%for (DangKiHoc dkh : listdkhtheoky) {%>
                                 <%accumulation.add(dkh);
                                     curr.add(dkh);
+                                    index++;
                                 %>
                                 <div class="row-diem-gr">
                                     <tr class="row-diem">
-                                        <td><span class="font">2</span></td>
+                                        <td><span class="font"><%=index%></span></td>
                                         <td><span class="font"><%=dkh.getMonHocKiHoc().getMh().getMaTC()%></span></td>
                                         <td><span class="font td-3"><%=dkh.getMonHocKiHoc().getMh().getTen()%></span></td>
                                         <td><span class="font"><%=dkh.getMonHocKiHoc().getMh().getSoTC()%></span></td>
@@ -269,14 +271,14 @@
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Điểm trung bình học kỳ hệ 4:</span>
-                                            <%float cur = Pretreatment.DiemTBKyHoc(curr);%>
+                                            <%float cur = Pretreatment.DiemTBKyHoc(curr, true);%>
                                             <span class="font"><%=cur%></span>
                                         </td>
                                     </tr>
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Điểm trung bình tích lũy(hệ 4):</span>
-                                            <%float acc = Pretreatment.DiemTBKyHoc(accumulation);%>
+                                            <%float acc = Pretreatment.DiemTBKyHoc(accumulation, false);%>
                                             <span class="font"><%=acc%></span>
 
                                         </td>
@@ -284,13 +286,13 @@
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Số tín chỉ đạt:</span>
-                                            <span class="font"><%=Pretreatment.TinhToanTinChi(curr)%></span>
+                                            <span class="font"><%=Pretreatment.TinhToanTinChi(curr, true)%></span>
                                         </td>
                                     </tr>
                                     <tr class="row-diemTK">
                                         <td colspan="18" align="left">
                                             <span class="font" style="width:300px">Số tín chỉ tích lũy:</span>
-                                            <span class="font"><%=Pretreatment.TinhToanTinChi(accumulation)%></span>
+                                            <span class="font"><%=Pretreatment.TinhToanTinChi(accumulation, false)%></span>
                                         </td>
                                     </tr>
                                 </div>
@@ -327,7 +329,7 @@
                         <table>
                             <tr>
                                 <td align="left">
-                                    <span class="font style1" style="color: red;">©2009 Học Viện Công Nghệ Bưu Chính Viễn Thông-Cơ Sở Miền Bắc. Quản lý bởi
+                                    <span class="font style1" style="color: red;">©2022 Học Viện Công Nghệ Bưu Chính Viễn Thông-Cơ Sở Miền Bắc. Quản lý bởi
                                     </span>   
                                 </td>
                                 <td class="style2">

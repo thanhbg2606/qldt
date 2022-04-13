@@ -6,6 +6,8 @@
 package controller.logic;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.stream.Collectors;
 import model.DangKiHoc;
 import model.KetQua;
 import model.MonHocDauDiem;
@@ -17,11 +19,9 @@ import model.MonHocDauDiem;
 public class Pretreatment {
 
     public static ArrayList<KetQua> changeListdsKQ(ArrayList<KetQua> ds) {
-        System.out.println("-----------------");
-        System.out.println("DS ket có có: " + ds.size());
         ArrayList<KetQua> result = new ArrayList<>();
 
-        //Khởi tạo ds điểm với 5 đầu điểm
+        
         KetQua kq = new KetQua();
         kq.setDiem(-1);
         MonHocDauDiem mhdd = new MonHocDauDiem();
@@ -49,24 +49,23 @@ public class Pretreatment {
                 result.set(4, d);
             }
         }
-        for (KetQua ketQua : result) {
-            System.out.print(ketQua.getDiemtp().getTitle());
-            System.out.print("  ");
-
-        }
-        System.out.println("");
-        for (KetQua ketQua : result) {
-            System.out.print(ketQua.getDiem());
-            System.out.print("  ");
-        }
-        System.out.println("");
+        
         return result;
 
     }
 
-    public static float DiemTBKyHoc(ArrayList<DangKiHoc> dsmh) {
-        
-        ArrayList<DangKiHoc> ds = Pretreatment.XuLyMonHocLai(Pretreatment.XuLyMonKhongTinhDiem(dsmh));
+    //bien check = true dùng để tính 1 kỳ
+    //           = false dùng để tính tích lũy
+    public static float DiemTBKyHoc(ArrayList<DangKiHoc> dsmh, boolean check) {
+        System.out.println("So mon dau vao tinh diem:" + dsmh.size());
+        ArrayList<DangKiHoc> ds = new ArrayList<DangKiHoc>();
+        if(check == false){
+             ds = Pretreatment.XuLyMonHocLai(Pretreatment.XuLyMonKhongTinhDiem(dsmh));
+        }
+        else{
+            ds = Pretreatment.XuLyMonKhongTinhDiem(dsmh);
+        }
+        System.out.println("so mon dau ra tinh diem:" +ds.size());
         float res = 0.0f;
         for (DangKiHoc d : ds) {
             TinhToan tt = new TinhToan();
@@ -119,9 +118,7 @@ public class Pretreatment {
         }
 
         res = res / count;
-
-        System.out.println("res:" + res);
-        System.out.println("....:" + (float) Math.round(res * 100) / 100);
+        System.out.println((float) Math.round(res * 100) / 100);
         return (float) Math.round(res * 100) / 100;
     }
 
@@ -170,10 +167,18 @@ public class Pretreatment {
         return result;
     }
     
-    public static int TinhToanTinChi(ArrayList<DangKiHoc> dsmh){
-        System.out.println("So mon dau vao:" + dsmh.size());
-        ArrayList<DangKiHoc> ds = Pretreatment.XuLyMonHocLai(Pretreatment.XuLyMonKhongTinhDiem(dsmh));
-        System.out.println("so mon dau ra:" +ds.size());
+    //bien check = true dùng để tính 1 kỳ
+    //           = false dùng để tính tích lũy
+    public static int TinhToanTinChi(ArrayList<DangKiHoc> dsmh, boolean check){
+        System.out.println("So mon dau vao tinh ti chi:" + dsmh.size());
+        ArrayList<DangKiHoc> ds = new ArrayList<DangKiHoc>();
+        if(check == false){
+             ds = Pretreatment.XuLyMonHocLai(Pretreatment.XuLyMonKhongTinhDiem(dsmh));
+        }
+        else{
+            ds = Pretreatment.XuLyMonKhongTinhDiem(dsmh);
+        }
+        System.out.println("so mon dau ratinh tin chi:" +ds.size());
         int res = 0;
         for (DangKiHoc d : ds) {
             if (d.getDiemTBM() >= 4.0) {
