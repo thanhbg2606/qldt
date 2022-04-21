@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2022 at 03:58 PM
+-- Generation Time: Apr 21, 2022 at 03:08 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -46,7 +46,12 @@ INSERT INTO `tbldangkihoc` (`idDangKiHoc`, `ghichu`, `idSinhVien`, `idMonHocKiHo
 (9, '', 1, 12),
 (10, '', 1, 13),
 (11, '', 1, 14),
-(12, '', 1, 15);
+(12, '', 1, 15),
+(13, '', 1, 16),
+(14, '', 5, 9),
+(15, '', 5, 15),
+(16, '', 5, 12),
+(17, '', 5, 17);
 
 -- --------------------------------------------------------
 
@@ -123,9 +128,9 @@ INSERT INTO `tblketqua` (`idKetQua`, `diem`, `ghichu`, `idDangKiHoc`, `idMonHocD
 (28, 10, '', 7, 28),
 (29, 5, '', 7, 29),
 (30, 8.5, '', 7, 30),
-(31, 9, '', 8, 31),
-(32, 7, '', 8, 32),
-(33, 8, '', 8, 33),
+(31, 3, '', 8, 31),
+(32, 2, '', 8, 32),
+(33, 2, '', 8, 33),
 (34, 10, '', 9, 34),
 (35, 6, '', 9, 35),
 (36, 5, '', 9, 36),
@@ -139,7 +144,25 @@ INSERT INTO `tblketqua` (`idKetQua`, `diem`, `ghichu`, `idDangKiHoc`, `idMonHocD
 (48, 10, '', 11, 57),
 (49, 3.5, '', 11, 58),
 (50, 10, '', 11, 59),
-(51, 3, '', 11, 60);
+(51, 3, '', 11, 60),
+(52, 9, '', 13, 31),
+(53, 7, '', 13, 32),
+(54, 8, '', 13, 33),
+(55, 10, '', 14, 19),
+(56, 4, '', 14, 20),
+(57, 2, '', 14, 21),
+(58, 4, '', 14, 22),
+(59, 7, '', 15, 41),
+(60, 5, '', 15, 42),
+(61, 4, '', 15, 43),
+(62, 10, '', 16, 34),
+(63, 6, '', 16, 35),
+(64, 5, '', 16, 36),
+(65, 5, '', 16, 37),
+(66, 10, '', 17, 19),
+(67, 8, '', 17, 20),
+(68, 8, '', 17, 21),
+(69, 8.5, '', 17, 22);
 
 -- --------------------------------------------------------
 
@@ -164,8 +187,7 @@ INSERT INTO `tblkihoc` (`idKiHoc`, `danghoc`, `dangdk`, `idNamHoc`, `idHocKi`) V
 (12, 1, 1, 1, 2),
 (13, 1, 1, 1, 3),
 (14, 1, 1, 2, 1),
-(15, 1, 1, 2, 2),
-(16, 1, 1, 1, 1);
+(15, 1, 1, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -283,7 +305,9 @@ INSERT INTO `tblmonhockihoc` (`idMonHocKiHoc`, `idMonHoc`, `idKiHoc`) VALUES
 (12, 5, 12),
 (13, 6, 12),
 (14, 7, 12),
-(15, 12, 11);
+(15, 12, 11),
+(16, 4, 13),
+(17, 2, 13);
 
 -- --------------------------------------------------------
 
@@ -481,7 +505,7 @@ ALTER TABLE `tblsinhvien`
 -- AUTO_INCREMENT for table `tbldangkihoc`
 --
 ALTER TABLE `tbldangkihoc`
-  MODIFY `idDangKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idDangKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbldaudiem`
@@ -499,7 +523,7 @@ ALTER TABLE `tblhocki`
 -- AUTO_INCREMENT for table `tblketqua`
 --
 ALTER TABLE `tblketqua`
-  MODIFY `idKetQua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idKetQua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `tblkihoc`
@@ -523,7 +547,7 @@ ALTER TABLE `tblmonhocdaudiem`
 -- AUTO_INCREMENT for table `tblmonhockihoc`
 --
 ALTER TABLE `tblmonhockihoc`
-  MODIFY `idMonHocKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idMonHocKiHoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tblnamhoc`
